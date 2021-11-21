@@ -1,0 +1,558 @@
+[
+    {
+        "id": "9b657335953e1f4e",
+        "type": "tab",
+        "label": "City managment",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5abda3e6e91eddc4",
+        "type": "ui_switch",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "label": "Switch1",
+        "tooltip": "",
+        "group": "73bcd3147def2133",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "enable",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "b520c086ef58f94f"
+            ]
+        ]
+    },
+    {
+        "id": "0df79facdd127efd",
+        "type": "ui_switch",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "label": "Switch2",
+        "tooltip": "",
+        "group": "73bcd3147def2133",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 500,
+        "y": 200,
+        "wires": [
+            [
+                "0f52b8e5a41c2074"
+            ]
+        ]
+    },
+    {
+        "id": "ad37a54941aae88b",
+        "type": "ui_switch",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "label": "Switch3",
+        "tooltip": "",
+        "group": "73bcd3147def2133",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "x": 500,
+        "y": 260,
+        "wires": [
+            [
+                "be0429be386b38c6"
+            ]
+        ]
+    },
+    {
+        "id": "b520c086ef58f94f",
+        "type": "link out",
+        "z": "9b657335953e1f4e",
+        "name": "mylink",
+        "links": [
+            "9c087b1b18afa9e7",
+            "bdcbba730148d7a9"
+        ],
+        "x": 615,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0f52b8e5a41c2074",
+        "type": "link out",
+        "z": "9b657335953e1f4e",
+        "name": "mylink2",
+        "links": [
+            "173a7d64c21cc349"
+        ],
+        "x": 615,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "be0429be386b38c6",
+        "type": "link out",
+        "z": "9b657335953e1f4e",
+        "name": "mylink3",
+        "links": [
+            "6d41466131fb435b"
+        ],
+        "x": 615,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1e621c39e82215cf",
+        "type": "ui_dropdown",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "label": "Boshqaruv xolati",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "73bcd3147def2133",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "Avtomatik ",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Qo`lda",
+                "type": "str"
+            },
+            {
+                "label": "",
+                "value": "Taymer orqali",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "dbfb34a0ba6cf7f7"
+            ]
+        ]
+    },
+    {
+        "id": "dbfb34a0ba6cf7f7",
+        "type": "function",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "func": "if(msg.payload ==\"Taymer orqali\" || msg.payload ==\"Avtomatik \")\n{\n    msg.enabled = false;\n}\nelse{\n     msg.enabled = true;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "5abda3e6e91eddc4",
+                "0df79facdd127efd",
+                "ad37a54941aae88b"
+            ]
+        ]
+    },
+    {
+        "id": "0075e05aa687340c",
+        "type": "ui_form",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "label": "Barcha qurilmalarni yonish vaqti",
+        "group": "06c13ec83826608b",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Switch1",
+                "value": "sw1",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Switch2",
+                "value": "sw2",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Switch3",
+                "value": "sw3",
+                "type": "time",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "sw1": "",
+            "sw2": "",
+            "sw3": ""
+        },
+        "payload": "",
+        "submit": "Saqlash",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "x": 350,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "61722b409f1a94c5",
+        "type": "ui_form",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "label": "Barcha qurilmalarni o`chish vaqt",
+        "group": "06c13ec83826608b",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Switch1",
+                "value": "sw1",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Switch2",
+                "value": "sw2",
+                "type": "time",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Switch3",
+                "value": "sw3",
+                "type": "time",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "sw1": "",
+            "sw2": "",
+            "sw3": ""
+        },
+        "payload": "",
+        "submit": "Saqlash",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "x": 350,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "29f68ec60d62fd27",
+        "type": "inject",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload.sw1",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 360,
+        "wires": [
+            [
+                "0075e05aa687340c"
+            ]
+        ]
+    },
+    {
+        "id": "f6fa431ccb4289ed",
+        "type": "ui_text",
+        "z": "9b657335953e1f4e",
+        "group": "28fdac24ae45b7cc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Quyosh chiqish vaqti",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 370,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "88c3cf6ccd941f6a",
+        "type": "inject",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "07:18",
+        "payloadType": "str",
+        "x": 130,
+        "y": 520,
+        "wires": [
+            [
+                "f6fa431ccb4289ed"
+            ]
+        ]
+    },
+    {
+        "id": "59c83568145eab92",
+        "type": "ui_text",
+        "z": "9b657335953e1f4e",
+        "group": "28fdac24ae45b7cc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Quyosh botish vaqti",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 370,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "02920f03c51446bd",
+        "type": "inject",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "18:26",
+        "payloadType": "str",
+        "x": 120,
+        "y": 580,
+        "wires": [
+            [
+                "59c83568145eab92"
+            ]
+        ]
+    },
+    {
+        "id": "fe984676ca060506",
+        "type": "ui_gauge",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "group": "28fdac24ae45b7cc",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Yorug`lik intensivligi",
+        "label": "Lumens",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 370,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a700ed6b89865ddf",
+        "type": "inject",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "880",
+        "payloadType": "num",
+        "x": 130,
+        "y": 640,
+        "wires": [
+            [
+                "fe984676ca060506"
+            ]
+        ]
+    },
+    {
+        "id": "4605ab0e15d3f635",
+        "type": "ui_text",
+        "z": "9b657335953e1f4e",
+        "group": "28fdac24ae45b7cc",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Sana",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 530,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "26ca1b14af74d01e",
+        "type": "inject",
+        "z": "9b657335953e1f4e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "73bcd3147def2133",
+        "type": "ui_group",
+        "name": "Sozlamalar",
+        "tab": "8f4c42b3.c0e6",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "06c13ec83826608b",
+        "type": "ui_group",
+        "name": "Taymer Sozlamalari",
+        "tab": "8f4c42b3.c0e6",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "28fdac24ae45b7cc",
+        "type": "ui_group",
+        "name": "API ma`lumotlari",
+        "tab": "8f4c42b3.c0e6",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "8f4c42b3.c0e6",
+        "type": "ui_tab",
+        "name": "City managment \"Urganch shahar\"",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
